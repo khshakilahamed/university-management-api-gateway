@@ -12,10 +12,25 @@ import { offeredCourseClassScheduleRoutes } from '../modules/offeredCourseClassS
 import { studentEnrolledCourseRoutes } from '../modules/studentEnrolledCourse/studentEnrolledCourse.route';
 import { studentEnrolledCourseMarkRoutes } from '../modules/studentEnrolledCourseMark/studentEnrolledCourseMark.route';
 import { studentSemesterPaymentRoutes } from '../modules/studentSemesterPayment/studentSemesterPayment.route';
+import { userRoutes } from '../modules/user/user.route';
+import { authRoutes } from '../modules/auth/auth.routes';
+import { facultyRoutes } from '../modules/faculty/faculty.route';
 
 const router = express.Router();
 
 const moduleRoutes = [
+  {
+    path: '/auth',
+    routes: authRoutes
+  },
+  {
+    path: '/users',
+    routes: userRoutes
+  },
+  {
+    path: '/faculties',
+    routes: facultyRoutes
+  },
   {
     path: '/academic-semesters',
     routes: academicSemesterRoutes
