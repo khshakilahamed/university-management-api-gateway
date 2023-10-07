@@ -7,8 +7,26 @@ import { ManagementDepartmentController } from './managementDepartment.controlle
 
 const router = express.Router();
 
-router.get('/', ManagementDepartmentController.getAllFromDB);
-router.get('/:id', ManagementDepartmentController.getByIdFromDB);
+router.get(
+  '/',
+  auth(
+    ENUM_USER_ROLE.SUPER_ADMIN,
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+    ENUM_USER_ROLE.STUDENT
+  ),
+  ManagementDepartmentController.getAllFromDB
+);
+router.get(
+  '/:id',
+  auth(
+    ENUM_USER_ROLE.SUPER_ADMIN,
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+    ENUM_USER_ROLE.STUDENT
+  ),
+  ManagementDepartmentController.getByIdFromDB
+);
 
 router.post(
   '/',
