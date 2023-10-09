@@ -3,7 +3,7 @@ import { CoreService as HttpService } from '../../../shared/axios';
 import { IGenericResponse } from '../../../interfaces/common';
 
 const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
-  //   console.log(req.body);
+  console.log(req.body);
   const response: IGenericResponse = await HttpService.post(
     '/academic-faculties/create-faculty',
     req.body,
@@ -18,7 +18,7 @@ const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
 };
 
 const getAllFromDB = async (req: Request): Promise<IGenericResponse> => {
-  console.log(req.query);
+  // console.log(req.query);
   const response: IGenericResponse = await HttpService.get('/academic-faculties', {
     params: req.query,
     headers: {
